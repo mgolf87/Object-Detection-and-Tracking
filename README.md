@@ -17,9 +17,10 @@ Instance segmentation. Combining object detection and semantic segmentation prod
 #### What's special about Masked R-CNN?
 Single pixel level discrimination: 1 = pixel mask; 0 = elsewhere. Put another way, instance segmentation at the pixel level and no information loss via ROIAlign as compared to R-CNN, Fast R-CNN, and Faster R-CNN. R-CNN functions to: 1) generate a set of proposals; 2) run the images through a pre-trained alexnet; 3) run the box through a linear regression. As such, R-CNN is very slow as it requires thousands of forward passes for every image and separate training of three different models. Fast R-CNN speeds this up via ROI Pooling resulting in one pass per image, and by combining all models into one framework (feature extractor + classifier + regressor). However, Fast R-CNN is still slow, therefore, Faster R-CNN creates an attention mechanism using a region proposal network (RPN) which deals with the slowness of selective search. Thus, Faster R-CNN performs object detection in two stages: 1) it determines the bounding boxes via a RPN; 2) for each ROI it determines the class label via ROI Pooling.
 <br />
+<br />
 
-### Primer on Masked R-CNN:
-
-
+### Instance Segmentation in Real-Time via Mask R-CNN
+#### realtimeInstanceSeg.ipynb
+Real-time instance segmentation using video captured from the users webcam. Tensorflow functions as the main backend or deep learning platform, pixellib is the wrapper for using instance segmentation, and opencv works with the users webcam or downloaded images/videos. Pre-trained weights are used however the file (mask_rcnn_coco.h5) is too large even when compressed, as such it can be accessed at https://github.com/matterport/Mask_RCNN/releases. Once downloaded we then set up our instance segmentation model loading our pretrained checkpoints into the model (mask_rcnn_coco.h5). Real-time capture is then setup using opencv and segmented using pixellibs instance_segmentation, displaying the webcam feed with boundary boxes and names for classified objects.
 
 <br />
