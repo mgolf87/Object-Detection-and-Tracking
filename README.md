@@ -4,7 +4,6 @@
 
 # Masked R-CNN
 ##### Masked Region based Convolution Neural Networks
-Requires a GPU to run. If no GPU we must run via AWS SageMaker using a notebook instance of ml.p2.xlarge (GPU CUDA-capable) with an elastic inference of ml.eia1.medium to save on costs. In order to send live video over the network to a server (AWS) we must use something like SmoothStream (https://github.com/CT83/SmoothStream/).
 <br />
 <br />
 
@@ -22,5 +21,5 @@ Single pixel level discrimination: 1 = pixel mask; 0 = elsewhere. Put another wa
 ## Instance Segmentation in Real-Time via Mask R-CNN
 ### realtimeInstanceSeg.ipynb
 Real-time instance segmentation using video captured from the users webcam. Tensorflow functions as the main backend or deep learning platform, pixellib is the wrapper for using instance segmentation, and opencv works with the users webcam or downloaded images/videos. Pre-trained weights are used however the file (mask_rcnn_coco.h5) is too large even when compressed, as such it can be accessed at https://github.com/matterport/Mask_RCNN/releases. Once downloaded we then set up our instance segmentation model loading our pretrained checkpoints into the model (mask_rcnn_coco.h5). Real-time capture is then setup using opencv and segmented using pixellibs instance_segmentation, displaying the webcam feed with boundary boxes and names for classified objects.
-
 <br />
+Requires a GPU to run. If no GPU we must run via AWS SageMaker using a notebook instance of ml.p2.xlarge (GPU CUDA-capable) with an elastic inference of ml.eia1.medium to save on costs. In order to send live video over the network to a server (AWS) we must use something like SmoothStream (https://github.com/CT83/SmoothStream/).
